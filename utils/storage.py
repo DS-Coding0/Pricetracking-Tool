@@ -4,9 +4,9 @@ from pathlib import Path
 from utils.logger import logger
 
 
-WATCHLIST_FILE = Path("watchlist.json")
-SNAPSHOT_FILE = Path("snapshot.json")
-CONFIG_FILE = Path("config.json")
+WATCHLIST_FILE = Path("data/watchlist.json")
+SNAPSHOT_FILE = Path("data/snapshot.json")
+CONFIG_FILE = Path("data/config.json")
 
 
 def load_json(path: Path, default):

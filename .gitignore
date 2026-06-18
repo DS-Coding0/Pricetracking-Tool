@@ -1,4 +1,2 @@
 .env
-config.json
-snapshots.json
-watchlist.json
+data/

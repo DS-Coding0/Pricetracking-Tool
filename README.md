@@ -108,9 +108,9 @@ Der Bot arbeitet in mehreren Schritten:
 
 Der Bot legt automatisch mehrere Dateien im Projektordner an:
 
-- `watchlist.json`: EnthaeIt alle ueberwachten URLs.
-- `snapshot.json`: Speichert den letzten bekannten Zustand je URL.
-- `config.json`: Speichert die Kanal-ID fuer oeffentliche Benachrichtigungen.
+- `data/watchlist.json`: EnthaeIt alle ueberwachten URLs.
+- `data/snapshot.json`: Speichert den letzten bekannten Zustand je URL.
+- `data/config.json`: Speichert die Kanal-ID fuer oeffentliche Benachrichtigungen.
 - `logs/price_tracker.log`: Laufende Logdatei des Bots.
 
 ## Slash-Commands
@@ -264,7 +264,7 @@ python -m playwright install chromium
 
 - Fuehre `/setchannel` aus.
 - Pruefe, ob der Bot Schreibrechte im Zielkanal hat.
-- Pruefe `config.json` und die Logs.
+- Pruefe `data/config.json` und die Logs.
 
 ## Naechste sinnvolle Erweiterungen
 
