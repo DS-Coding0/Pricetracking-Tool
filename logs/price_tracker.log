@@ -1,0 +1,122 @@
+2026-06-18 12:49:08,381 [INFO] price_tracker: 6 Slash-Commands fuer Guild 1148881289382998026 synchronisiert.
+2026-06-18 12:49:10,843 [INFO] price_tracker: Bot online als DSC-Pricetracker#7070
+2026-06-18 12:49:10,843 [INFO] price_tracker: Pruefung gestartet...
+2026-06-18 12:49:10,845 [INFO] price_tracker: Pruefung beendet.
+2026-06-18 12:49:32,142 [INFO] price_tracker: Benachrichtigungskanal gesetzt: 1516832939584000170
+2026-06-18 12:50:14,282 [INFO] price_tracker: Parser cardbuddys erfolgreich fuer https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 12:50:14,285 [INFO] price_tracker: Produktlink hinzugefuegt: https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 12:53:07,859 [WARNING] price_tracker: JSON-Request fehlgeschlagen fuer https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5.js (Versuch 1/3): 200, message='Attempt to decode JSON with unexpected mimetype: text/javascript; charset=utf-8', url='https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5.js'
+2026-06-18 12:53:09,953 [WARNING] price_tracker: JSON-Request fehlgeschlagen fuer https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5.js (Versuch 2/3): 200, message='Attempt to decode JSON with unexpected mimetype: text/javascript; charset=utf-8', url='https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5.js'
+2026-06-18 12:53:14,047 [WARNING] price_tracker: JSON-Request fehlgeschlagen fuer https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5.js (Versuch 3/3): 200, message='Attempt to decode JSON with unexpected mimetype: text/javascript; charset=utf-8', url='https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5.js'
+2026-06-18 12:53:14,048 [ERROR] price_tracker: JSON-Request dauerhaft fehlgeschlagen fuer https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5.js
+2026-06-18 12:53:32,847 [INFO] price_tracker: Parser generic_html erfolgreich fuer https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 12:53:32,848 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 12:56:12,957 [INFO] price_tracker: 6 Slash-Commands fuer Guild 1148881289382998026 synchronisiert.
+2026-06-18 12:56:15,509 [INFO] price_tracker: Bot online als DSC-Pricetracker#7070
+2026-06-18 12:56:15,510 [INFO] price_tracker: Pruefung gestartet...
+2026-06-18 12:56:19,421 [INFO] price_tracker: Parser cardbuddys erfolgreich fuer https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 12:56:19,424 [INFO] price_tracker: Keine Aenderung: https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 12:56:19,587 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 12:56:19,588 [INFO] price_tracker: AENDERUNG erkannt: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 12:56:20,117 [INFO] price_tracker: Aenderungsbenachrichtigung gesendet fuer https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 12:56:20,118 [INFO] price_tracker: Pruefung beendet.
+2026-06-18 12:57:00,421 [INFO] price_tracker: 6 Slash-Commands fuer Guild 1148881289382998026 synchronisiert.
+2026-06-18 12:57:02,936 [INFO] price_tracker: Bot online als DSC-Pricetracker#7070
+2026-06-18 12:57:02,936 [INFO] price_tracker: Pruefung gestartet...
+2026-06-18 12:57:06,643 [INFO] price_tracker: Parser cardbuddys erfolgreich fuer https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 12:57:06,644 [INFO] price_tracker: Keine Aenderung: https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 12:57:06,644 [INFO] price_tracker: Pruefung beendet.
+2026-06-18 12:57:11,427 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 12:57:11,428 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 12:57:20,648 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5
+2026-06-18 12:57:20,650 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5
+2026-06-18 12:57:28,857 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5
+2026-06-18 12:57:28,859 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5
+2026-06-18 12:57:34,560 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5
+2026-06-18 12:57:34,562 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5
+2026-06-18 12:57:39,631 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5
+2026-06-18 12:57:39,633 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5
+2026-06-18 12:57:58,889 [INFO] price_tracker: Pruefung gestartet...
+2026-06-18 12:58:02,551 [INFO] price_tracker: Parser cardbuddys erfolgreich fuer https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 12:58:02,551 [INFO] price_tracker: Keine Aenderung: https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 12:58:02,690 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 12:58:02,690 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 12:58:02,773 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5
+2026-06-18 12:58:02,773 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5
+2026-06-18 12:58:02,863 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5
+2026-06-18 12:58:02,863 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5
+2026-06-18 12:58:02,944 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5
+2026-06-18 12:58:02,944 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5
+2026-06-18 12:58:03,037 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5
+2026-06-18 12:58:03,037 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5
+2026-06-18 12:58:03,038 [INFO] price_tracker: Pruefung beendet.
+2026-06-18 12:58:46,473 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-blind-box-30th-anniversary-first-partner-card-set-vol-2
+2026-06-18 12:58:46,476 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/s-chn-pokemon-blind-box-30th-anniversary-first-partner-card-set-vol-2
+2026-06-18 12:59:16,846 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-display-abyss-eye-m5
+2026-06-18 12:59:16,848 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/jp-pokemon-display-abyss-eye-m5
+2026-06-18 12:59:41,334 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-display-30th-celebration-m6a
+2026-06-18 12:59:41,336 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/jp-pokemon-display-30th-celebration-m6a
+2026-06-18 12:59:47,812 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-first-partners
+2026-06-18 12:59:47,814 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-first-partners
+2026-06-18 12:59:52,915 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-futuristic-box
+2026-06-18 12:59:52,917 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-futuristic-box
+2026-06-18 13:00:06,026 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-display-terastal-grand-gathering-csv9-5
+2026-06-18 13:00:06,028 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/s-chn-pokemon-display-terastal-grand-gathering-csv9-5
+2026-06-18 13:00:15,088 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-box-pokemon-30th-celebration-premium-deck-set-psiana-nachtara
+2026-06-18 13:00:15,091 [INFO] price_tracker: Produktlink hinzugefuegt: https://yonko-tcg.de/products/jp-pokemon-box-pokemon-30th-celebration-premium-deck-set-psiana-nachtara
+2026-06-18 13:07:02,947 [INFO] price_tracker: Pruefung gestartet...
+2026-06-18 13:07:06,567 [INFO] price_tracker: Parser cardbuddys erfolgreich fuer https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 13:07:06,568 [INFO] price_tracker: Keine Aenderung: https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 13:07:06,701 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 13:07:06,701 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 13:07:06,805 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5
+2026-06-18 13:07:06,805 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5
+2026-06-18 13:07:06,917 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5
+2026-06-18 13:07:06,922 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5
+2026-06-18 13:07:07,069 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5
+2026-06-18 13:07:07,071 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5
+2026-06-18 13:07:07,171 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5
+2026-06-18 13:07:07,172 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5
+2026-06-18 13:07:07,266 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-blind-box-30th-anniversary-first-partner-card-set-vol-2
+2026-06-18 13:07:07,266 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-blind-box-30th-anniversary-first-partner-card-set-vol-2
+2026-06-18 13:07:07,354 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-display-abyss-eye-m5
+2026-06-18 13:07:07,354 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-display-abyss-eye-m5
+2026-06-18 13:07:07,433 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-display-30th-celebration-m6a
+2026-06-18 13:07:07,433 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-display-30th-celebration-m6a
+2026-06-18 13:07:07,513 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-first-partners
+2026-06-18 13:07:07,514 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-first-partners
+2026-06-18 13:07:07,599 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-futuristic-box
+2026-06-18 13:07:07,600 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-futuristic-box
+2026-06-18 13:07:07,680 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-display-terastal-grand-gathering-csv9-5
+2026-06-18 13:07:07,680 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-display-terastal-grand-gathering-csv9-5
+2026-06-18 13:07:07,748 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-box-pokemon-30th-celebration-premium-deck-set-psiana-nachtara
+2026-06-18 13:07:07,748 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-box-pokemon-30th-celebration-premium-deck-set-psiana-nachtara
+2026-06-18 13:07:07,749 [INFO] price_tracker: Pruefung beendet.
+2026-06-18 13:17:02,940 [INFO] price_tracker: Pruefung gestartet...
+2026-06-18 13:17:06,654 [INFO] price_tracker: Parser cardbuddys erfolgreich fuer https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 13:17:06,654 [INFO] price_tracker: Keine Aenderung: https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de
+2026-06-18 13:17:06,866 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 13:17:06,866 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5
+2026-06-18 13:17:06,956 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5
+2026-06-18 13:17:06,957 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5
+2026-06-18 13:17:07,102 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5
+2026-06-18 13:17:07,103 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5
+2026-06-18 13:17:07,192 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5
+2026-06-18 13:17:07,192 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5
+2026-06-18 13:17:07,309 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5
+2026-06-18 13:17:07,309 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5
+2026-06-18 13:17:07,420 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-blind-box-30th-anniversary-first-partner-card-set-vol-2
+2026-06-18 13:17:07,421 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-blind-box-30th-anniversary-first-partner-card-set-vol-2
+2026-06-18 13:17:07,518 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-display-abyss-eye-m5
+2026-06-18 13:17:07,518 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-display-abyss-eye-m5
+2026-06-18 13:17:07,619 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-display-30th-celebration-m6a
+2026-06-18 13:17:07,619 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-display-30th-celebration-m6a
+2026-06-18 13:17:07,698 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-first-partners
+2026-06-18 13:17:07,698 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-first-partners
+2026-06-18 13:17:07,783 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-futuristic-box
+2026-06-18 13:17:07,783 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-futuristic-box
+2026-06-18 13:17:07,883 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/s-chn-pokemon-display-terastal-grand-gathering-csv9-5
+2026-06-18 13:17:07,884 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/s-chn-pokemon-display-terastal-grand-gathering-csv9-5
+2026-06-18 13:17:07,991 [INFO] price_tracker: Shopify-Daten erfolgreich extrahiert: https://yonko-tcg.de/products/jp-pokemon-box-pokemon-30th-celebration-premium-deck-set-psiana-nachtara
+2026-06-18 13:17:07,991 [INFO] price_tracker: Keine Aenderung: https://yonko-tcg.de/products/jp-pokemon-box-pokemon-30th-celebration-premium-deck-set-psiana-nachtara
+2026-06-18 13:17:07,992 [INFO] price_tracker: Pruefung beendet.

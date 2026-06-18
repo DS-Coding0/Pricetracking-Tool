@@ -1,1 +1,375 @@
-{}
+{
+    "https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de": {
+        "source": "cardbuddys_html",
+        "url": "https://www.cardbuddys.de/home/produkte/pokemon-tcg/boxen/16969/mega-entwicklungen-wachsendes-chaos-top-trainer-box-de",
+        "title": "Mega-Entwicklungen Wachsendes Chaos Top Trainer Box DE",
+        "price": "74,95 €",
+        "availability": null,
+        "body_text": "Zurück zu \"Boxen\" Verfügbarkeit: verfügbar Art.-Nr.: 109788 Hersteller: Pokemon Neu! 74,95 € inkl. 19% MwSt. zzgl. Versand Lieferung nach Deutschland in den Warenkorb Auf die Liste Artikelbeschreibung Artikelmerkmale Sprache: Deutsch! Inhalt: 9 Boosterpacks der Pokémon-Sammelkartenspiel-Erweiterung \"Mega-Entwicklungen Wachsendes Chaos” 1 Promo Karte 65 Kartenhüllen 45 Energiekarten des Pokémon-Sammelkartenspiels 1 Spielanleitung 1 Regelbuch für das Pokémon-Sammelkartenspiel 6 Schadensmarken-Würfel 1 bei Wettbewerben zulässiger Münzwurf-Würfel 2 Kunststoffmünze 1 Sammelbox zum Aufbewahren sämtlicher Artikel mit 6 Trennstegen zum Organisieren 1 Code-Karte für das Pokémon-Sammelkartenspiel-Online Hersteller The Pokémon Company International 10400 NE 4th Street, Suite 2800 Bellevue, WA 98004 USA 3rd Floor Building 10, Chiswick Park,, 566 Chiswick High Road Lonodon, W4 5X5 United Kingdom The Pokémon Company International Ireland Limited 3rd Floor, 2 Central Plaza, Dame Street Dublin 2, D02 T0X4, Ireland E-Mail: supportteam@pokemon.com ACHTUNG!: Nicht für Kinder unter sechs Jahren geeignet. Verschluckbare Kleinteile. Artikelmerkmale: Merkmal Wert Sprache Deutsch Produktart Top Trainer Bo"
+    },
+    "https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5",
+        "title": "[S-CHN] Pokémon Box - Terastal Grand Gathering Kartenhalter (CSV9.5)",
+        "handle": "s-chn-pokemon-terastal-grand-gathering-kartenhalter-csv9-5",
+        "vendor": "Yonko TCG",
+        "product_type": "Box/Tins",
+        "price": 2995,
+        "compare_at_price": null,
+        "price_min": 2995,
+        "price_max": 2995,
+        "available": true,
+        "availability": "available",
+        "variant_count": 1,
+        "variants": [
+            {
+                "id": 53209180799304,
+                "title": "Default Title",
+                "price": 2995,
+                "available": true,
+                "sku": "CSV9.5-Kartenhalter-Single"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5",
+        "title": "[S-CHN] Pokémon - Terastal Grand Gathering Badge Set (CSV9.5)",
+        "handle": "s-chn-pokemon-terastal-grand-gathering-badge-set-csv9-5",
+        "vendor": "Yonko TCG",
+        "product_type": "Box/Tins",
+        "price": 1795,
+        "compare_at_price": null,
+        "price_min": 1795,
+        "price_max": 17095,
+        "available": true,
+        "availability": "available",
+        "variant_count": 2,
+        "variants": [
+            {
+                "id": 53313198555464,
+                "title": "Einzeln",
+                "price": 1795,
+                "available": true,
+                "sku": "CSV9.5-Badge-Single"
+            },
+            {
+                "id": 53313198588232,
+                "title": "10 Stück (Sealed Display)",
+                "price": 17095,
+                "available": true,
+                "sku": "CSV9.5-Badge-Display"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5",
+        "title": "[S-CHN] Pokémon Box - Terastal Grand Gathering Binder (CSV9.5)",
+        "handle": "s-chn-pokemon-box-terastal-grand-gathering-binder-csv9-5",
+        "vendor": "Yonko TCG",
+        "product_type": "Box/Tins",
+        "price": 13995,
+        "compare_at_price": null,
+        "price_min": 13995,
+        "price_max": 13995,
+        "available": true,
+        "availability": "available",
+        "variant_count": 9,
+        "variants": [
+            {
+                "id": 53220803772744,
+                "title": "Evoli",
+                "price": 13995,
+                "available": true,
+                "sku": "CSV9.5-Binder-Evoli"
+            },
+            {
+                "id": 53220803805512,
+                "title": "Aquana",
+                "price": 13995,
+                "available": true,
+                "sku": "CSV9.5-Binder-Aquana"
+            },
+            {
+                "id": 53220918526280,
+                "title": "Flamara",
+                "price": 13995,
+                "available": true,
+                "sku": "CSV9.5-Binder-Flamara"
+            },
+            {
+                "id": 53220918559048,
+                "title": "Blitza",
+                "price": 13995,
+                "available": true,
+                "sku": "CSV9.5-Binder-Blitza"
+            },
+            {
+                "id": 53220918591816,
+                "title": "Psiana",
+                "price": 13995,
+                "available": true,
+                "sku": "CSV9.5-Binder-Psiana"
+            },
+            {
+                "id": 53220918624584,
+                "title": "Nachtara",
+                "price": 13995,
+                "available": false,
+                "sku": "CSV9.5-Binder-Nachtara"
+            },
+            {
+                "id": 53220918657352,
+                "title": "Folipurba",
+                "price": 13995,
+                "available": true,
+                "sku": "CSV9.5-Binder-Folipurba"
+            },
+            {
+                "id": 53220918690120,
+                "title": "Feelinara",
+                "price": 13995,
+                "available": false,
+                "sku": "CSV9.5-Binder-Feelinara"
+            },
+            {
+                "id": 53220918722888,
+                "title": "Glaziola",
+                "price": 13995,
+                "available": true,
+                "sku": "CSV9.5-Binder-Glaziola"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5",
+        "title": "[S-CHN] Pokémon Box - Terastal Grand Gathering Tin Box (CSV9.5)",
+        "handle": "s-chn-pokemon-box-terastal-grand-gathering-magnet-tin-csv9-5",
+        "vendor": "Yonko TCG",
+        "product_type": "Box/Tins",
+        "price": 2495,
+        "compare_at_price": null,
+        "price_min": 2495,
+        "price_max": 21995,
+        "available": true,
+        "availability": "available",
+        "variant_count": 2,
+        "variants": [
+            {
+                "id": 53200251224392,
+                "title": "Einzeln (nach Zufall)",
+                "price": 2495,
+                "available": true,
+                "sku": "CSV9.5-Single Tin Box"
+            },
+            {
+                "id": 53200251257160,
+                "title": "9 Stück (kein Sealed Display)",
+                "price": 21995,
+                "available": true,
+                "sku": "CSV9.5-Display Tin Box"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5",
+        "title": "[S-CHN] Pokémon Coin Set - Terastal Grand Gathering (CSV9.5)",
+        "handle": "s-chn-pokemon-coin-set-terastal-grand-gathering-csv9-5",
+        "vendor": "Yonko TCG",
+        "product_type": "Box/Tins",
+        "price": 1995,
+        "compare_at_price": null,
+        "price_min": 1995,
+        "price_max": 16995,
+        "available": true,
+        "availability": "available",
+        "variant_count": 2,
+        "variants": [
+            {
+                "id": 53191417200968,
+                "title": "Einzeln (nach Zufall)",
+                "price": 1995,
+                "available": true,
+                "sku": "CSV9.5-Single Coin Set"
+            },
+            {
+                "id": 53191417233736,
+                "title": "9 Stück (kein Sealed Display)",
+                "price": 16995,
+                "available": true,
+                "sku": "CSV9.5-Display Coin Set"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/s-chn-pokemon-blind-box-30th-anniversary-first-partner-card-set-vol-2": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/s-chn-pokemon-blind-box-30th-anniversary-first-partner-card-set-vol-2",
+        "title": "[S-CHN] Pokémon Blind Box - 30th Anniversary First Partner Card Set Vol.2",
+        "handle": "s-chn-pokemon-blind-box-30th-anniversary-first-partner-card-set-vol-2",
+        "vendor": "Yonko TCG",
+        "product_type": "Box/Tins",
+        "price": 0,
+        "compare_at_price": null,
+        "price_min": 0,
+        "price_max": 0,
+        "available": false,
+        "availability": "sold_out",
+        "variant_count": 1,
+        "variants": [
+            {
+                "id": 53072079814984,
+                "title": "Default Title",
+                "price": 0,
+                "available": false,
+                "sku": "30th-FPCSV2"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/jp-pokemon-display-abyss-eye-m5": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/jp-pokemon-display-abyss-eye-m5",
+        "title": "[JP] Pokémon Display - Abyss Eye (M5)",
+        "handle": "jp-pokemon-display-abyss-eye-m5",
+        "vendor": "Yonko TCG",
+        "product_type": "Displays",
+        "price": 12495,
+        "compare_at_price": 12995,
+        "price_min": 12495,
+        "price_max": 12495,
+        "available": false,
+        "availability": "sold_out",
+        "variant_count": 1,
+        "variants": [
+            {
+                "id": 52994573140296,
+                "title": "Default Title",
+                "price": 12495,
+                "available": false,
+                "sku": "M5"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/jp-pokemon-display-30th-celebration-m6a": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/jp-pokemon-display-30th-celebration-m6a",
+        "title": "[JP] Pokémon Display - 30th Celebration (M6a)",
+        "handle": "jp-pokemon-display-30th-celebration-m6a",
+        "vendor": "Yonko TCG",
+        "product_type": "Displays",
+        "price": 0,
+        "compare_at_price": null,
+        "price_min": 0,
+        "price_max": 0,
+        "available": false,
+        "availability": "sold_out",
+        "variant_count": 1,
+        "variants": [
+            {
+                "id": 53233189847368,
+                "title": "Default Title",
+                "price": 0,
+                "available": false,
+                "sku": "M6a"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-first-partners": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-first-partners",
+        "title": "[JP] Pokémon Box - 30th Celebration First Partners",
+        "handle": "jp-pokemon-box-30th-celebration-first-partners",
+        "vendor": "Yonko TCG",
+        "product_type": "Box/Tins",
+        "price": 0,
+        "compare_at_price": null,
+        "price_min": 0,
+        "price_max": 0,
+        "available": false,
+        "availability": "sold_out",
+        "variant_count": 1,
+        "variants": [
+            {
+                "id": 53274309165384,
+                "title": "Default Title",
+                "price": 0,
+                "available": false,
+                "sku": "30th-CFP-JP"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-futuristic-box": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/jp-pokemon-box-30th-celebration-futuristic-box",
+        "title": "[JP] Pokémon Box - 30th Celebration Futuristic Box",
+        "handle": "jp-pokemon-box-30th-celebration-futuristic-box",
+        "vendor": "Yonko TCG",
+        "product_type": "Box/Tins",
+        "price": 0,
+        "compare_at_price": null,
+        "price_min": 0,
+        "price_max": 0,
+        "available": false,
+        "availability": "sold_out",
+        "variant_count": 1,
+        "variants": [
+            {
+                "id": 53241043059016,
+                "title": "Default Title",
+                "price": 0,
+                "available": false,
+                "sku": "30th-CFB-JP"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/s-chn-pokemon-display-terastal-grand-gathering-csv9-5": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/s-chn-pokemon-display-terastal-grand-gathering-csv9-5",
+        "title": "[S-CHN] Pokémon Display - Terastal Grand Gathering (CSV9.5)",
+        "handle": "s-chn-pokemon-display-terastal-grand-gathering-csv9-5",
+        "vendor": "Yonko TCG",
+        "product_type": "Displays",
+        "price": 10995,
+        "compare_at_price": null,
+        "price_min": 10995,
+        "price_max": 10995,
+        "available": false,
+        "availability": "sold_out",
+        "variant_count": 1,
+        "variants": [
+            {
+                "id": 53274177536328,
+                "title": "Default Title",
+                "price": 10995,
+                "available": false,
+                "sku": "CSV9.5-Display"
+            }
+        ]
+    },
+    "https://yonko-tcg.de/products/jp-pokemon-box-pokemon-30th-celebration-premium-deck-set-psiana-nachtara": {
+        "source": "shopify_json",
+        "url": "https://yonko-tcg.de/products/jp-pokemon-box-pokemon-30th-celebration-premium-deck-set-psiana-nachtara",
+        "title": "[JP] Pokémon Box - Pokémon 30th Celebration Premium Deck Set Psiana & Nachtara",
+        "handle": "jp-pokemon-box-pokemon-30th-celebration-premium-deck-set-psiana-nachtara",
+        "vendor": "Yonko TCG",
+        "product_type": "Box/Tins",
+        "price": 0,
+        "compare_at_price": null,
+        "price_min": 0,
+        "price_max": 0,
+        "available": false,
+        "availability": "sold_out",
+        "variant_count": 1,
+        "variants": [
+            {
+                "id": 53241063178568,
+                "title": "Default Title",
+                "price": 0,
+                "available": false,
+                "sku": "30th-CEU-Box-JP"
+            }
+        ]
+    }
+}

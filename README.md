@@ -1,57 +1,74 @@
-# Discord Price Tracker Bot
+# Price Tracker Bot
 
-Ein Discord-Bot zum Ueberwachen von Produktseiten. Der Bot prueft gespeicherte URLs in einem festen Intervall, vergleicht den aktuellen Stand mit einem gespeicherten Snapshot und sendet bei Aenderungen eine Benachrichtigung in einen festgelegten Discord-Kanal.
+Ein modular aufgebauter Discord-Bot zum Ueberwachen von Produktseiten. Der Bot speichert beim ersten Abruf einen Snapshot je URL und vergleicht bei spaeteren Pruefungen Preis, Verfuegbarkeit und weitere erkannte Produktdaten. Wenn sich etwas aendert, sendet der Bot eine Benachrichtigung in einen konfigurierten Discord-Kanal.
 
 ## Funktionen
 
-- Watchlist-Verwaltung per Slash-Commands.
-- Automatische Pruefung aller Produkte alle X Minuten.
-- Snapshot-basierter Vergleich von Preis, Verfuegbarkeit und Titel.
-- Benachrichtigungen per Discord-Embed bei erkannten Aenderungen.
-- Unterstuetzung fuer dynamische Seiten ueber Playwright.
-- Shopify-Erkennung ueber `produkt-url.js`, wenn die Seite ein Shopify-Produkt ist.
-- Kanal-Konfiguration fuer oeffentliche Aenderungsmeldungen.
-- Schutz sensibler Werte ueber `.env`.
-- Owner-Pruefung fuer administrative Commands wie `/setchannel`.
-
-## Verwendete Technologien
-
-- `discord.py`
-- `requests`
-- `beautifulsoup4`
-- `playwright`
-- `python-dotenv`
-- JSON-Dateien fuer lokale Speicherung
+- Ueberwachung beliebig vieler Produktlinks ueber eine Watchlist
+- Automatische Pruefung in einem festen Intervall
+- Speicherung des ersten Zustands als Snapshot
+- Vergleich zwischen altem und neuem Zustand
+- Oeffentliche Discord-Benachrichtigung bei Aenderungen
+- Datei-Logging mit rotierenden Logfiles
+- Retry-Logik bei Netzwerkfehlern und Serverfehlern
+- Asynchrone HTTP-Requests mit `aiohttp`
+- Playwright-Unterstuetzung fuer dynamische Seiten
+- Shop-spezifische Parser in separaten Modulen
+- Generischer Fallback-Parser fuer unbekannte Shops
 
 ## Projektstruktur
 
-Der Bot arbeitet mit folgenden Dateien im Projektordner:
-
-- `bot.py` – Hauptdatei des Bots
-- `.env` – Umgebungsvariablen
-- `watchlist.json` – gespeicherte ueberwachte URLs
-- `snapshot.json` – letzter Snapshot pro URL
-- `config.json` – Bot-Konfiguration, z. B. der Benachrichtigungskanal
+```text
+price_tracker_bot/
+├── .env.example
+├── requirements.txt
+├── main.py
+├── parsers/
+│   ├── __init__.py
+│   ├── base.py
+│   ├── common.py
+│   ├── shopify_parser.py
+│   ├── cardbuddys_parser.py
+│   ├── generic_parser.py
+│   └── registry.py
+└── utils/
+    ├── __init__.py
+    ├── browser.py
+    ├── config.py
+    ├── helpers.py
+    ├── http.py
+    ├── logger.py
+    └── storage.py
+```
 
 ## Voraussetzungen
 
-- Python 3.10 oder neuer
-- Ein Discord-Bot im [Discord Developer Portal](https://discord.com/developers/applications)
-- Ein Discord-Server, auf dem der Bot eingeladen ist
-- Chromium fuer Playwright
+- Python 3.11 oder neuer empfohlen
+- Ein Discord-Bot mit aktiviertem Bot-Token
+- Rechte zum Einladen des Bots auf deinen Server
+- Playwright Chromium fuer dynamisch geladene Seiten
 
 ## Installation
 
-### 1. Abhaengigkeiten installieren
+### 1. Projektordner vorbereiten
+
+Lege die Projektstruktur wie oben beschrieben an oder uebernimm die erzeugten Dateien.
+
+### 2. Abhaengigkeiten installieren
 
 ```bash
-pip install -U discord.py requests beautifulsoup4 playwright python-dotenv
+pip install -r requirements.txt
+```
+
+### 3. Playwright-Browser installieren
+
+```bash
 python -m playwright install chromium
 ```
 
-### 2. `.env` Datei erstellen
+## Konfiguration
 
-Lege im Projektordner eine Datei namens `.env` an.
+Erstelle im Hauptordner eine Datei `.env` auf Basis von `.env.example`:
 
 ```env
 DISCORD_BOT_TOKEN=dein_discord_bot_token
@@ -60,218 +77,199 @@ GUILD_ID=123456789012345678
 CHECK_INTERVAL_MINUTES=10
 ```
 
-## Bedeutung der `.env` Werte
+### Bedeutung der Variablen
 
-| Variable | Pflicht | Beschreibung |
-|---------|---------|--------------|
-| `DISCORD_BOT_TOKEN` | Ja | Token deines Discord-Bots |
-| `OWNER_USER_ID` | Ja | Discord-User-ID, die administrative Befehle wie `/setchannel` nutzen darf |
-| `GUILD_ID` | Ja | ID des Discord-Servers fuer den Guild-spezifischen Slash-Command-Sync |
-| `CHECK_INTERVAL_MINUTES` | Nein | Intervall in Minuten fuer automatische Pruefungen, Standard ist `10` |
+- `DISCORD_BOT_TOKEN`: Token deines Discord-Bots aus dem Discord Developer Portal.
+- `OWNER_USER_ID`: Deine Discord User-ID. Diese ID darf geschuetzte Befehle wie `/setchannel` ausfuehren.
+- `GUILD_ID`: Die Server-ID, in der die Slash-Commands schnell synchronisiert werden sollen.
+- `CHECK_INTERVAL_MINUTES`: Intervall in Minuten fuer die automatische Pruefung aller Links.
 
-Wenn `DISCORD_BOT_TOKEN`, `OWNER_USER_ID` oder `GUILD_ID` fehlen oder ungueltig sind, bricht der Bot beim Start mit einer klaren Fehlermeldung ab.
+## Starten
 
-## Bot starten
+Starte den Bot im Projektordner mit:
 
 ```bash
-python bot.py
+python main.py
 ```
 
-Bei erfolgreichem Start erscheinen in der Konsole sinngemaess Meldungen wie:
+Beim ersten Start verbindet sich der Bot mit Discord, synchronisiert seine Slash-Commands und startet den Hintergrund-Checker.
 
-```text
-X Slash-Commands fuer Guild 123456789012345678 synchronisiert.
-Bot online als DeinBot#1234
-```
+## Arbeitsweise
 
-## Discord Bot einladen
+Der Bot arbeitet in mehreren Schritten:
 
-Der Bot sollte mit mindestens diesen Scopes eingeladen werden:
+1. Ein Link wird per Slash-Command zur Watchlist hinzugefuegt.
+2. Direkt beim Hinzufuegen wird ein erster Snapshot gespeichert.
+3. Der Hintergrund-Task prueft alle Links alle X Minuten.
+4. Die aktuellen Daten werden mit den gespeicherten Snapshots verglichen.
+5. Bei Unterschieden wird eine Discord-Nachricht gesendet und der Snapshot aktualisiert.
 
-- `bot`
-- `applications.commands`
+## Gespeicherte Dateien
 
-Sinnvolle Berechtigungen:
+Der Bot legt automatisch mehrere Dateien im Projektordner an:
 
-- View Channels
-- Send Messages
-- Embed Links
-- Read Message History
+- `watchlist.json`: EnthaeIt alle ueberwachten URLs.
+- `snapshot.json`: Speichert den letzten bekannten Zustand je URL.
+- `config.json`: Speichert die Kanal-ID fuer oeffentliche Benachrichtigungen.
+- `logs/price_tracker.log`: Laufende Logdatei des Bots.
 
 ## Slash-Commands
 
 ### `/add <url>`
-Fuegt eine Produktseite zur Watchlist hinzu und speichert sofort den ersten Snapshot.
+
+Fuegt einen neuen Produktlink zur Watchlist hinzu und speichert sofort den ersten Snapshot.
 
 ### `/remove <url>`
-Entfernt eine URL aus der Watchlist und loescht den zugehoerigen Snapshot.
+
+Entfernt einen Produktlink aus der Watchlist und loescht den dazugehoerigen Snapshot.
 
 ### `/list`
-Zeigt alle aktuell ueberwachten URLs an.
+
+Zeigt alle aktuell ueberwachten Produktlinks an.
 
 ### `/setchannel <kanal>`
-Setzt den Kanal, in dem oeffentliche Aenderungsbenachrichtigungen gepostet werden.
 
-Hinweis: Dieser Command ist durch `OWNER_USER_ID` geschuetzt.
+Setzt den Discord-Kanal, in den oeffentliche Aenderungsbenachrichtigungen gepostet werden. Dieser Befehl ist auf die in `.env` definierte `OWNER_USER_ID` beschraenkt.
 
 ### `/checknow`
-Startet sofort eine manuelle Pruefung aller Produkte in der Watchlist.
+
+Startet sofort eine manuelle Pruefung aller Links in der Watchlist.
 
 ### `/help`
-Zeigt eine Uebersicht aller Befehle als Discord-Embed.
 
-## Wie der Bot arbeitet
+Zeigt die wichtigsten Bot-Befehle direkt in Discord an.
 
-1. Eine URL wird mit `/add` in die Watchlist aufgenommen.
-2. Der erste erkannte Zustand wird in `snapshot.json` gespeichert.
-3. Der Background-Task startet automatisch nach dem Login des Bots.
-4. Alle `CHECK_INTERVAL_MINUTES` werden die Links erneut geprueft.
-5. Die neuen Daten werden mit dem alten Snapshot verglichen.
-6. Bei Aenderungen wird ein Embed in den konfigurierten Kanal gesendet.
-7. Anschliessend wird der neue Snapshot gespeichert.
+## Parser-System
 
-## Erkennungslogik
+Die Parser sind modular aufgebaut.
 
-Der Bot nutzt zwei Wege zum Auslesen von Produktdaten:
+### `parsers/shopify_parser.py`
 
-### 1. Shopify-Produkte
+Versucht Produktdaten direkt ueber den Shopify-JSON-Endpunkt `<produkt-url>.js` abzurufen. Das ist meist stabiler als ein HTML-Vergleich.
 
-Wenn die URL auf eine Shopify-Produktseite hinweist, wird zunaechst versucht, die Produktdaten ueber die JSON-Endung `.js` abzurufen.
+### `parsers/cardbuddys_parser.py`
+
+Enthaelt shop-spezifische Logik fuer `cardbuddys.de`.
+
+### `parsers/generic_parser.py`
+
+Dient als allgemeiner HTML-Fallback fuer unbekannte Shops.
+
+### `parsers/registry.py`
+
+Steuert, welcher Parser fuer welche URL verwendet wird.
+
+## Logging
+
+Das Logging ist in `utils/logger.py` gekapselt und schreibt sowohl in die Konsole als auch in eine Datei:
+
+- Datei: `logs/price_tracker.log`
+- Rotierende Logfiles mit maximal 1 MB pro Datei
+- Bis zu 5 Backup-Dateien
+
+So kannst du Fehler, Timeouts oder erkannte Aenderungen auch spaeter noch nachvollziehen.
+
+## Retry-Logik
+
+Die Datei `utils/http.py` enthaelt eine Retry-Logik fuer Netzwerkfehler, Timeouts, HTTP 429 und HTTP 5xx.
+
+Verhalten:
+
+- Mehrere Wiederholungsversuche pro Request
+- Kurze Wartezeit zwischen den Versuchen
+- Logging jedes Fehlversuchs
+- Sauberer Abbruch nach dem letzten Fehlversuch
+
+## Dynamische Seiten
+
+Einige Shops laden Preise oder Verfuegbarkeit erst per JavaScript nach. Fuer solche Faelle wird Playwright verwendet.
+
+Die Datei `utils/browser.py`:
+
+- startet einen headless Chromium-Browser,
+- laedt die Produktseite,
+- wartet kurz auf sichtbare Inhalte,
+- liest den HTML-Inhalt aus,
+- uebergibt diesen an die Parser.
+
+## Erweiterung um neue Shops
+
+Wenn du einen neuen Shop spezifisch unterstuetzen willst, gehst du so vor:
+
+1. Neue Datei in `parsers/` anlegen, z. B. `myshop_parser.py`
+2. Klasse von `BaseParser` ableiten
+3. `can_handle()` fuer die Domain definieren
+4. `parse()` mit den passenden CSS-Selektoren bauen
+5. Parser in `parsers/registry.py` registrieren
 
 Beispiel:
 
-```text
-https://shop.de/products/beispielprodukt
-->
-https://shop.de/products/beispielprodukt.js
-```
-
-Dabei koennen unter anderem diese Werte direkt ausgelesen werden:
-
-- Titel
-- Anbieter
-- Produkttyp
-- Preis
-- Min-/Max-Preis
-- Verfuegbarkeit
-- Varianten
-
-### 2. HTML-Fallback mit Playwright und BeautifulSoup
-
-Wenn keine Shopify-JSON verfuegbar ist, nutzt der Bot Playwright, um die Seite im Headless-Browser zu laden. Der Titel wird zuerst direkt im DOM ueber Playwright gesucht. Danach wird das HTML an BeautifulSoup uebergeben, um weitere Daten wie Preis und Verfuegbarkeit zu extrahieren.
-
-Vorteile dieses Ansatzes:
-
-- funktioniert besser bei JavaScript-lastigen Shops
-- Titel kann direkt aus dem finalen DOM gelesen werden
-- Fallback ueber klassische HTML-Selektoren bleibt erhalten
-
-## Beispiel fuer Titel-Erkennung
-
-Wenn ein Produkttitel etwa so aufgebaut ist:
-
-```html
-<h1 class="card-title col-md-10">Mega-Entwicklungen Wachsendes Chaos Top Trainer Box DE</h1>
-```
-
-Dann ist ein passender CSS-Selektor:
-
 ```python
-"h1.card-title.col-md-10"
+from parsers.base import BaseParser
+
+class MyShopParser(BaseParser):
+    name = "myshop"
+
+    def can_handle(self, url: str, html: str | None = None) -> bool:
+        return "myshop.de" in url
+
+    async def parse(self, url: str, session, html: str | None = None, title_from_page: str | None = None):
+        return {
+            "source": "myshop",
+            "url": url,
+            "title": "Produktname",
+            "price": "99,99 €",
+            "availability": "Vorbestellung moeglich",
+        }
 ```
 
-Mehrere Klassen auf demselben Element werden in CSS ohne Leerzeichen kombiniert.
+## Typischer Ablauf in Discord
 
-## Gespeicherte Daten
+1. Bot starten
+2. `/setchannel` einmalig ausfuehren
+3. Mit `/add <url>` Produkte hinzufuegen
+4. Bot prueft automatisch im Intervall
+5. Bei Preis- oder Statusaenderungen kommt eine oeffentliche Meldung im konfigurierten Kanal
 
-### `watchlist.json`
-Enthaelt alle ueberwachten Produktlinks als Liste.
+## Hinweise
 
-### `snapshot.json`
-Enthaelt den letzten bekannten Stand pro URL. Je nach Shop oder Quelle koennen unter anderem folgende Felder gespeichert werden:
+- Nicht jede Seite laesst sich problemlos scrapen. Manche Shops blockieren Bots aktiv.
+- Ein kompletter HTML-Vergleich ist meist fehleranfaellig, daher werden gezielt relevante Daten extrahiert.
+- Fuer manche Shops muessen CSS-Selektoren spaeter noch individuell angepasst werden.
+- Wenn du viele Seiten gleichzeitig ueberwachst, solltest du das Intervall nicht zu aggressiv einstellen.
 
-- `title`
-- `price`
-- `availability`
-- `body_text`
-- `variants`
-- `available`
-- `price_min`
-- `price_max`
+## Troubleshooting
 
-### `config.json`
-Enthaelt zurzeit vor allem:
+### Slash-Commands erscheinen nicht
 
-- `notification_channel_id`
+- Pruefe, ob `GUILD_ID` korrekt ist.
+- Pruefe, ob der Bot auf dem richtigen Server ist.
+- Starte den Bot neu.
 
-## Benachrichtigungen
+### Playwright funktioniert nicht
 
-Wenn eine Aenderung erkannt wird, sendet der Bot ein Discord-Embed mit:
+- Stelle sicher, dass Chromium installiert wurde:
 
-- Produkttitel
-- Produktlink
-- altem und neuem Preis
-- alter und neuer Verfuegbarkeit
-- weiteren geaenderten Feldern, sofern vorhanden
-- Zeitstempel
+```bash
+python -m playwright install chromium
+```
 
-Slash-Command-Antworten bleiben dabei `ephemeral`, also nur fuer den ausloesenden Benutzer sichtbar. Die echten Produktwarnungen werden dagegen oeffentlich in den gesetzten Kanal gesendet.
+### Der Bot erkennt keine Daten
 
-## Schutz gegen haeufige Fehler
+- Teste die URL manuell im Browser.
+- Pruefe die Logdatei unter `logs/price_tracker.log`.
+- Passe gegebenenfalls den passenden Parser oder die Selektoren an.
 
-Der Code enthaelt bereits mehrere Schutzmechanismen:
+### Keine oeffentlichen Benachrichtigungen
 
-- Validierung wichtiger `.env` Variablen beim Start
-- Fallback, wenn Shopify-JSON nicht verfuegbar ist
-- Schutz vor `None`-Werten bei Embed-Feldern ueber `safe_embed_value()`
-- URL-Normalisierung ueber `normalize_url()`
-- Erkennung moeglicher Block-Seiten ueber typische Marker wie `captcha` oder `Incapsula`
+- Fuehre `/setchannel` aus.
+- Pruefe, ob der Bot Schreibrechte im Zielkanal hat.
+- Pruefe `config.json` und die Logs.
 
-## Typische Fehlerquellen
+## Naechste sinnvolle Erweiterungen
 
-### `DISCORD_BOT_TOKEN fehlt in der .env`
-Die `.env` Datei fehlt, ist falsch benannt oder enthaelt den Schluessel nicht.
-
-### `OWNER_USER_ID muss eine gueltige Integer-ID sein`
-Die User-ID ist leer oder kein numerischer Discord-Wert.
-
-### `GUILD_ID muss eine gueltige Integer-ID sein`
-Die Server-ID in der `.env` ist ungueltig.
-
-### `Die Seite konnte nicht gelesen werden oder ist blockiert`
-Der Shop blockiert automatisierte Zugriffe oder die HTML-Struktur wurde geaendert.
-
-### Keine Titel-, Preis- oder Verfuegbarkeits-Erkennung
-Dann muessen die CSS-Selektoren in `title_selectors`, `price_selectors` oder `availability_selectors` an die Zielseite angepasst werden.
-
-## Anpassbare Einstellungen
-
-Diese Punkte kannst du leicht erweitern oder anpassen:
-
-- `CHECK_INTERVAL_MINUTES`
-- Preis-Selektoren
-- Verfuegbarkeits-Selektoren
-- Titel-Selektoren
-- ignorierte Felder in `ignored_keys`
-- Embed-Inhalt und Benachrichtigungsformat
-
-## Empfehlung fuer spaetere Erweiterungen
-
-Fuer eine groessere oder stabilere Version koennen folgende Erweiterungen sinnvoll sein:
-
-- Wechsel von JSON zu SQLite
-- Logging in Datei statt nur `print()`
-- Retry-Logik bei Netzwerkfehlern
-- Rollen-Pings bei bestimmten Produkten
-- Trennung von Shop-spezifischen Parsern in eigene Module
-- `aiohttp` statt `requests` fuer voll asynchrones HTTP
-
-## Sicherheit
-
-- Speichere niemals den Discord-Token direkt im Code.
-- Committe `.env` nicht in ein oeffentliches Repository.
-- Regeneriere den Bot-Token sofort, falls er jemals geleakt wurde.
-
-## Lizenz
-
-Dieses Projekt kann frei fuer private oder interne Zwecke angepasst und erweitert werden.
+- SQLite statt JSON-Dateien
+- Telegram- oder E-Mail-Benachrichtigungen
+- Eigene Parser pro Shop fuer bessere Erkennungsrate
+- Diff-Ausgabe fuer konkrete Textaenderungen
+- Weboberflaeche zum Verwalten der Watchlist
