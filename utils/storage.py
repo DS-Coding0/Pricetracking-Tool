@@ -20,6 +20,7 @@ def load_json(path: Path, default):
 
 
 def save_json(path: Path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(data, ensure_ascii=False, indent=4),
         encoding="utf-8"
@@ -43,7 +44,16 @@ def save_snapshots(snapshots):
 
 
 def load_config():
-    return load_json(CONFIG_FILE, {"notification_channel_id": None})
+    config = load_json(CONFIG_FILE, {"notification_channel_ids": []})
+
+    if "notification_channel_ids" not in config:
+        legacy_channel_id = config.get("notification_channel_id")
+        if legacy_channel_id:
+            config["notification_channel_ids"] = [legacy_channel_id]
+        else:
+            config["notification_channel_ids"] = []
+
+    return config
 
 
 def save_config(config):

@@ -38,8 +38,8 @@ class PriceTrackerBot(commands.Bot):
     async def setup_hook(self):
         self.http_session = aiohttp.ClientSession()
         self.tree.copy_global_to(guild=TEST_GUILD)
-        synced = await self.tree.sync(guild=TEST_GUILD)
-        logger.info("%s Slash-Commands fuer Guild %s synchronisiert.", len(synced), GUILD_ID)
+        synced = await self.tree.sync()
+        logger.info("%s globale Slash-Commands synchronisiert.", len(synced))
 
     async def close(self):
         if hasattr(self, "http_session") and self.http_session and not self.http_session.closed:
@@ -62,28 +62,39 @@ async def extract_relevant_data(url, session):
     return await parser_registry.extract(url, session)
 
 
-async def get_notification_channel():
+async def get_notification_channels():
     config = load_config()
-    channel_id = config.get("notification_channel_id")
+    channel_ids = config.get("notification_channel_ids", [])
 
-    if not channel_id:
-        return None
+    if not channel_ids:
+        return []
 
-    channel = bot.get_channel(channel_id)
-    if channel is not None:
-        return channel
+    channels = []
+    seen_ids = set()
 
-    try:
-        return await bot.fetch_channel(channel_id)
-    except Exception as e:
-        logger.error("Kanal konnte nicht geladen werden: %s", e)
-        return None
+    for channel_id in channel_ids:
+        if channel_id in seen_ids:
+            continue
+        seen_ids.add(channel_id)
+
+        channel = bot.get_channel(channel_id)
+        if channel is not None:
+            channels.append(channel)
+            continue
+
+        try:
+            fetched_channel = await bot.fetch_channel(channel_id)
+            channels.append(fetched_channel)
+        except Exception as e:
+            logger.error("Kanal %s konnte nicht geladen werden: %s", channel_id, e)
+
+    return channels
 
 
 async def send_change_message(url, old_data, new_data):
-    channel = await get_notification_channel()
-    if channel is None:
-        logger.warning("Kein Benachrichtigungskanal gesetzt.")
+    channels = await get_notification_channels()
+    if not channels:
+        logger.warning("Keine Benachrichtigungskanaele gesetzt.")
         return
 
     changes = format_change(old_data, new_data)
@@ -137,11 +148,12 @@ async def send_change_message(url, old_data, new_data):
 
     embed.set_footer(text="Price Tracker Bot")
 
-    try:
-        await channel.send(embed=embed)
-        logger.info("Aenderungsbenachrichtigung gesendet fuer %s", url)
-    except Exception as e:
-        logger.error("Nachricht konnte nicht gesendet werden: %s", e)
+    for channel in channels:
+        try:
+            await channel.send(embed=embed)
+            logger.info("Aenderungsbenachrichtigung gesendet fuer %s an Kanal %s", url, channel.id)
+        except Exception as e:
+            logger.error("Nachricht konnte nicht an Kanal %s gesendet werden: %s", channel.id, e)
 
 
 async def check_url(url, snapshots):
@@ -265,19 +277,80 @@ async def list_products(interaction: discord.Interaction):
     await interaction.response.send_message(f"**Watchlist:**\n{text}", ephemeral=True)
 
 
-@bot.tree.command(name="setchannel", description="Setzt den Kanal fuer oeffentliche Aenderungsbenachrichtigungen.")
+@bot.tree.command(name="addchannel", description="Fuegt einen Kanal fuer oeffentliche Aenderungsbenachrichtigungen hinzu.")
 @app_commands.check(is_owner_user)
 @app_commands.describe(channel="Discord-Kanal fuer Benachrichtigungen")
-async def set_channel(interaction: discord.Interaction, channel: discord.TextChannel):
+async def add_channel(interaction: discord.Interaction, channel: discord.TextChannel):
     config = load_config()
-    config["notification_channel_id"] = channel.id
+    channel_ids = config.get("notification_channel_ids", [])
+
+    if channel.id in channel_ids:
+        await interaction.response.send_message(
+            f"Der Kanal {channel.mention} ist bereits hinterlegt.",
+            ephemeral=True
+        )
+        return
+
+    channel_ids.append(channel.id)
+    config["notification_channel_ids"] = channel_ids
     save_config(config)
 
-    logger.info("Benachrichtigungskanal gesetzt: %s", channel.id)
+    logger.info("Benachrichtigungskanal hinzugefuegt: %s", channel.id)
     await interaction.response.send_message(
-        f"Benachrichtigungskanal gesetzt auf {channel.mention}",
+        f"Benachrichtigungskanal hinzugefuegt: {channel.mention}",
         ephemeral=True
     )
+
+
+@bot.tree.command(name="removechannel", description="Entfernt einen Kanal aus den oeffentlichen Aenderungsbenachrichtigungen.")
+@app_commands.check(is_owner_user)
+@app_commands.describe(channel="Discord-Kanal, der entfernt werden soll")
+async def remove_channel(interaction: discord.Interaction, channel: discord.TextChannel):
+    config = load_config()
+    channel_ids = config.get("notification_channel_ids", [])
+
+    if channel.id not in channel_ids:
+        await interaction.response.send_message(
+            f"Der Kanal {channel.mention} ist nicht hinterlegt.",
+            ephemeral=True
+        )
+        return
+
+    channel_ids.remove(channel.id)
+    config["notification_channel_ids"] = channel_ids
+    save_config(config)
+
+    logger.info("Benachrichtigungskanal entfernt: %s", channel.id)
+    await interaction.response.send_message(
+        f"Benachrichtigungskanal entfernt: {channel.mention}",
+        ephemeral=True
+    )
+
+
+@bot.tree.command(name="channels", description="Zeigt alle Kanaele fuer oeffentliche Aenderungsbenachrichtigungen.")
+@app_commands.check(is_owner_user)
+async def list_channels(interaction: discord.Interaction):
+    config = load_config()
+    channel_ids = config.get("notification_channel_ids", [])
+
+    if not channel_ids:
+        await interaction.response.send_message("Es sind keine Benachrichtigungskanaele hinterlegt.", ephemeral=True)
+        return
+
+    lines = []
+    for channel_id in channel_ids:
+        channel = bot.get_channel(channel_id)
+        if channel is not None:
+            guild_name = getattr(channel.guild, "name", "Unbekannter Server")
+            lines.append(f"- {channel.mention} (`{channel_id}`) auf **{guild_name}**")
+        else:
+            lines.append(f"- Unbekannter Kanal (`{channel_id}`)")
+
+    text = "\n".join(lines)
+    if len(text) > 1900:
+        text = text[:1900] + "\n..."
+
+    await interaction.response.send_message(f"**Benachrichtigungskanaele:**\n{text}", ephemeral=True)
 
 
 @bot.tree.command(name="checknow", description="Startet sofort eine manuelle Pruefung.")
@@ -299,10 +372,12 @@ async def help_command(interaction: discord.Interaction):
     embed.add_field(name="/add <url>", value="Fuegt einen neuen Produktlink zur Watchlist hinzu und speichert direkt den ersten Snapshot.", inline=False)
     embed.add_field(name="/remove <url>", value="Entfernt einen Produktlink aus der Watchlist und loescht den zugehoerigen Snapshot.", inline=False)
     embed.add_field(name="/list", value="Zeigt alle aktuell ueberwachten Produktlinks an.", inline=False)
-    embed.add_field(name="/setchannel <kanal>", value="Legt fest, in welchen Kanal oeffentliche Aenderungsbenachrichtigungen gesendet werden.", inline=False)
+    embed.add_field(name="/addchannel <kanal>", value="Fuegt einen Kanal zur Liste der oeffentlichen Aenderungsbenachrichtigungen hinzu.", inline=False)
+    embed.add_field(name="/removechannel <kanal>", value="Entfernt einen Kanal aus der Liste der oeffentlichen Aenderungsbenachrichtigungen.", inline=False)
+    embed.add_field(name="/channels", value="Zeigt alle aktuell hinterlegten Benachrichtigungskanaele an.", inline=False)
     embed.add_field(name="/checknow", value="Startet sofort eine manuelle Pruefung aller Produkte in der Watchlist.", inline=False)
     embed.add_field(name="/help", value="Zeigt diese Hilfe an.", inline=False)
-    embed.add_field(name="Hinweis", value="Slash-Command-Antworten sind nur fuer dich sichtbar, echte Produktaenderungen werden oeffentlich in den gesetzten Kanal gepostet.", inline=False)
+    embed.add_field(name="Hinweis", value="Slash-Command-Antworten sind nur fuer dich sichtbar, echte Produktaenderungen werden in alle hinterlegten Kanaele gepostet.", inline=False)
     embed.set_footer(text="Price Tracker Bot")
 
     await interaction.response.send_message(embed=embed, ephemeral=True)
