@@ -1,6 +1,7 @@
 from parsers.cardbuddys_parser import CardBuddysParser
 from parsers.generic_parser import GenericHtmlParser
 from parsers.shopify_parser import ShopifyParser
+from parsers.cardcorner_parser import CardCornerParser
 from utils.browser import fetch_page_with_playwright
 from utils.logger import logger
 
@@ -10,6 +11,7 @@ class ParserRegistry:
         self.shopify_parser = ShopifyParser()
         self.html_parsers = [
             CardBuddysParser(),
+            CardCornerParser(),
             GenericHtmlParser(),
         ]
 

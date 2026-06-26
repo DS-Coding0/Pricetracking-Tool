@@ -11,7 +11,7 @@ def setup_logging() -> logging.Logger:
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
     logger = logging.getLogger("price_tracker")
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)
 
     if logger.handlers:
         return logger
