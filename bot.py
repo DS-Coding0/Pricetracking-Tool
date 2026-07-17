@@ -97,6 +97,10 @@ async def send_change_message(url, old_data, new_data):
         logger.warning("Keine Benachrichtigungskanaele gesetzt.")
         return
 
+    if new_data.get("source") == "html_fallback":
+        logger.info("Keine Benachrichtigung gesendet, da Quelle html_fallback ist: %s", url)
+        return
+
     changes = format_change(old_data, new_data)
 
     embed = discord.Embed(
